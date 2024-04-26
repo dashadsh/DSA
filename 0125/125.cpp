@@ -1,20 +1,19 @@
-
 class Solution {
 public:
-    bool isPalindrome(string s) {
+    bool isPalindrome(std::string s) {
         int l = 0;
         int r = s.length() - 1;
         
         while (l < r) {
-            while (l < r && !isalnum(s[l])) {
+            while (l < r && !std::isalnum(s[l])) {
                 l++;
             }
 
-            while (l < r && !isalnum(s[r])) {
+            while (l < r && !std::isalnum(s[r])) {
                 r--;
             }
 
-            if (tolower(s[l]) != tolower(s[r])) {
+            if (std::tolower(s[l]) != std::tolower(s[r])) {
                 return false;
             }
 
