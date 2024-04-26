@@ -5,16 +5,24 @@
 #include <vector>
 #include <unordered_map>
 
-class TwoSum {
+class Solution {
 public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
         std::unordered_map<int, int> numToIndex;
 
-        for (int i = 0; i < nums.size(); ++i) {
+        for (int i = 0; i < nums.size(); i++) {
             numToIndex[nums[i]] = i;
+			// std::cout << "Added " << nums[i] << " at index " << i << " to numToIndex map." << std::endl;
+
         }
 
-        for (int i = 0; i < nums.size(); ++i) {
+        // std::cout << "Contents of numToIndex map:" << std::endl;
+       	// for (const auto& pair : numToIndex) {
+		// //for (const std::pair<int, int>& pair : numToIndex) {
+        //     std::cout << pair.first << " => " << pair.second << std::endl;
+        // }
+
+        for (int i = 0; i < nums.size(); i++) {
             int complement = target - nums[i];
             if (numToIndex.find(complement) != numToIndex.end() && numToIndex[complement] != i) {
                 return {i, numToIndex[complement]};
@@ -26,7 +34,7 @@ public:
 };
 
 int main() {
-    TwoSum solution;
+    Solution solution;
 
     std::vector<int> nums1 = {2, 7, 11, 15};
     int target1 = 9;
